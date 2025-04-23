@@ -9,14 +9,16 @@ This project is a web application that allows users to submit a YouTube video UR
 * Deployment: The application is deployed as a Docker container on an AWS EC2 instance.
 
 ## Project Structure
-.Dockerignore
-.gitignore
-Dockerfile
-main.py
-requirements.txt
-deploy-to-ec2.yml
-static/
-  index.html
+<pre>
+  .Dockerignore
+  .gitignore
+  Dockerfile
+  main.py
+  requirements.txt
+  deploy-to-ec2.yml
+  static/
+    index.html
+</pre>
 
 ## Key Files
 * main.py: Implements the application logic and serves the user interface.
