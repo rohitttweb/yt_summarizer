@@ -24,12 +24,12 @@ requirements.txt
 </pre>
 
 ## Key Files
-* main.py: Implements the application logic and serves the user interface.
-* static/index.html: The HTML page for interacting with the application.
-* Dockerfile: Defines the Docker image for the application.
-* requirements.txt: Lists Python dependencies.
-* deploy-to-ec2.yml: AWS CloudFormation template for deploying the application on an EC2 instance.
-* .github/workflows/build-and-deploy.yml: GitHub Actions workflow for automating the build and push process to docker hub.
+* `main.py`: Implements the application logic and serves the user interface.
+* `static/index.html`: The HTML page for interacting with the application.
+* `Dockerfile`: Defines the Docker image for the application.
+* `requirements.txt`: Lists Python dependencies.
+* `deploy-to-ec2.yml`: AWS CloudFormation template for deploying the application on an EC2 instance.
+* `.github/workflows/build-and-deploy.yml`: GitHub Actions workflow for automating the build and push process to docker hub.
 
 ## Installation and Setup
 Prerequisites
@@ -40,21 +40,21 @@ Prerequisites
 
 ### Local Setup
 1. Clone the repository
-  <pre>
-    git clone `repository-url`
-    cd `repository-folder`
-  </pre>
+<pre>
+  git clone `repository-url`
+  cd `repository-folder`
+</pre>
 2. Install dependencies
-  <pre>
-    pip install -r requirements.txt
-  </pre>
+<pre>
+  pip install -r requirements.txt
+</pre>
 3. Run the application locally:
-  <pre>
-    uvicorn main:app --host 0.0.0.0 --port 8000
-  </pre>
+<pre>
+  uvicorn main:app --host 0.0.0.0 --port 8000
+</pre>
 4. Access the application in your browser at `http://localhost:8000`
 
-## CI/CD with GitHub Actions
+## CI with GitHub Actions
 The project includes a GitHub Actions workflow for automating the build process.
 
 Workflow File: `.github/workflows/build-and-push.yml`
@@ -65,7 +65,7 @@ Workflow File: `.github/workflows/build-and-push.yml`
       2. Build the Docker image.
       3. Push the Docker image to Docker Hub.
 
-## Deployment
+## Deployment with cloud CloudFormation
 #### Deployment on EC2
 1. Prepare AWS Environment:
     * Ensure you have an EC2 KeyPair for SSH access.
