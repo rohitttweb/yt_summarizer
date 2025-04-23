@@ -2,7 +2,8 @@ from fastapi import FastAPI, Query
 from transformers import pipeline
 from urllib.parse import urlparse, parse_qs
 from youtube_transcript_api import YouTubeTranscriptApi
-
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
 # Extract video ID from URL
@@ -45,3 +46,9 @@ def summarize_youtube_video(url: str = Query(..., description="YouTube video URL
     
     summary = summarize_text(transcript)
     return {"summary": summary}
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/")
+def get_index():
+    return FileResponse("static/index.html")
