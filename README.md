@@ -33,11 +33,20 @@ Prerequisites
 
 ### Local Setup
 1. Clone the repository
+<pre>
 ```bash
     git clone <repository-url>
     cd <repository-folder>
+</pre>
 
 2. Install dependencies
+<pre>
 ```bash
     pip install -r requirements.txt
+</pre>
 
+3. Run the application locally:
+<pre>
+```bash
+    uvicorn main:app --host 0.0.0.0 --port 8000
+</pre>
