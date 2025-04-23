@@ -71,7 +71,8 @@ Workflow File: `.github/workflows/build-and-push.yml`
 1. Prepare AWS Environment:
     * Ensure you have an EC2 KeyPair for SSH access.
     * Configure your AWS CLI with appropriate credentials.
-2. Depoy-to-ec2.yml` template to deploy the application:
+2. Deploy Using CloudFormation:
+    * use the `Depoy-to-ec2.yml` template to deploy the application:
       <pre>
         aws cloudformation create-stack --stack-name yt-summarizer-stack \
         --template-body file://deploy-to-ec2.yml \
