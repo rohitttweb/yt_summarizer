@@ -11,13 +11,13 @@ This project is a web application that allows users to submit a YouTube video UR
 ## Project Structure
 <pre>
   .Dockerignore
-  .gitignore
-  Dockerfile
-  main.py
-  requirements.txt
-  deploy-to-ec2.yml
-  static/
-    index.html
+.gitignore
+Dockerfile
+main.py
+requirements.txt
+deploy-to-ec2.yml
+static/
+  index.html
 </pre>
 
 ## Key Files
@@ -57,18 +57,17 @@ Prerequisites
     * Ensure you have an EC2 KeyPair for SSH access.
     * Configure your AWS CLI with appropriate credentials.
 2. Deploy Using CloudFormation:
-  * Use the deploy-to-ec2.yml template to deploy the application:
-  <pre>
-    aws cloudformation create-stack --stack-name yt-summarizer-stack \
-    --template-body file://deploy-to-ec2.yml \
-    --parameters ParameterKey=KeyName,ParameterValue=`YourKeyPairName`
-  </pre>
-  * Replace `YourKeyPairName` with the name of your EC2 KeyPair.
+    * Use the deploy-to-ec2.yml template to deploy the application:
+      <pre>
+        aws cloudformation create-stack --stack-name yt-summarizer-stack \
+        --template-body file://deploy-to-ec2.yml \
+        --parameters ParameterKey=KeyName,ParameterValue=`YourKeyPairName`
+      </pre>
+    * Replace `YourKeyPairName` with the name of your EC2 KeyPair.
 
 3. Access the Application:
-
-  * Once the stack is created, retrieve the public IP or DNS of the EC2 instance from the CloudFormation outputs.
-  * Access the application in your browser at http://`PublicIP`.
+    * Once the stack is created, retrieve the public IP or DNS of the EC2 instance from the CloudFormation outputs.
+    * Access the application in your browser at http://`PublicIP`.
 
 ## How to Use
 1. Open the application in your browser.
