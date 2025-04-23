@@ -54,8 +54,8 @@ Prerequisites
 ## Deployment
 ### Deployment on EC2
 1. Prepare AWS Environment:
-  * Ensure you have an EC2 KeyPair for SSH access.
-  * Configure your AWS CLI with appropriate credentials.
+    * Ensure you have an EC2 KeyPair for SSH access.
+    * Configure your AWS CLI with appropriate credentials.
 2. Deploy Using CloudFormation:
   * Use the deploy-to-ec2.yml template to deploy the application:
   <pre>
