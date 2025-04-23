@@ -10,14 +10,17 @@ This project is a web application that allows users to submit a YouTube video UR
 
 ## Project Structure
 <pre>
-  .Dockerignore
+.Dockerignore
 .gitignore
-Dockerfile
-main.py
-requirements.txt
-deploy-to-ec2.yml
+.github/
+  workflows/
+    build-and-deploy.yml
 static/
   index.html
+main.py
+Dockerfile
+deploy-to-ec2.yml
+requirements.txt
 </pre>
 
 ## Key Files
@@ -26,38 +29,49 @@ static/
 * Dockerfile: Defines the Docker image for the application.
 * requirements.txt: Lists Python dependencies.
 * deploy-to-ec2.yml: AWS CloudFormation template for deploying the application on an EC2 instance.
+* .github/workflows/build-and-deploy.yml: GitHub Actions workflow for automating the build and push process to docker hub.
 
 ## Installation and Setup
 Prerequisites
 * Python 3.10+
 * Docker
 * AWS CLI (for deployment)
+* GitHub account (for CI/CD)
 
 ### Local Setup
 1. Clone the repository
-<pre>
-  git clone `repository-url`
-  cd `repository-folder`
-</pre>
-
+  <pre>
+    git clone `repository-url`
+    cd `repository-folder`
+  </pre>
 2. Install dependencies
-<pre>
-  pip install -r requirements.txt
-</pre>
-
+  <pre>
+    pip install -r requirements.txt
+  </pre>
 3. Run the application locally:
-<pre>
-  uvicorn main:app --host 0.0.0.0 --port 8000
-</pre>
+  <pre>
+    uvicorn main:app --host 0.0.0.0 --port 8000
+  </pre>
 4. Access the application in your browser at `http://localhost:8000`
 
+## CI/CD with GitHub Actions
+The project includes a GitHub Actions workflow for automating the build process.
+
+Workflow File: `.github/workflows/build-and-push.yml`
+  * Purpose: Automates the process of building the Docker image and pushing it to docker hub.
+  * Triggers: Runs on every push to the main branch.
+  * Steps:
+      1. Checkout the repository.
+      2. Build the Docker image.
+      3. Push the Docker image to Docker Hub.
+
 ## Deployment
-### Deployment on EC2
+#### Deployment on EC2
 1. Prepare AWS Environment:
     * Ensure you have an EC2 KeyPair for SSH access.
     * Configure your AWS CLI with appropriate credentials.
 2. Deploy Using CloudFormation:
-    * Use the deploy-to-ec2.yml template to deploy the application:
+    * Use the `deploy-to-ec2.yml` template to deploy the application:
       <pre>
         aws cloudformation create-stack --stack-name yt-summarizer-stack \
         --template-body file://deploy-to-ec2.yml \
