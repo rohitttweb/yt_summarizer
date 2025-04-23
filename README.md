@@ -38,7 +38,7 @@ Prerequisites
 * AWS CLI (for deployment)
 * GitHub account (for CI/CD)
 
-### Local Setup
+## Local Setup
 1. Clone the repository
 <pre>
   git clone `repository-url`
