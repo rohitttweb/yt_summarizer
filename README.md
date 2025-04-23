@@ -96,9 +96,3 @@ Workflow File: `.github/workflows/build-and-push.yml`
 * torch
 * transformers
 * youtube_transcript_api
-
-## Future Improvements
-1. Add error messages for invalid YouTube URLs.
-2. Improve the summarization model for better accuracy.
-3. Enhance the user interface for a more modern look.
-4. Add support for multiple languages in transcript summarization.
