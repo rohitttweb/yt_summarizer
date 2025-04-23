@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: Simple EC2 Instance running backend with Docker
+Description: Simple EC2 Instance running with Docker
 
 Parameters:
   KeyName:
@@ -29,8 +29,8 @@ Resources:
       BlockDeviceMappings:
       - DeviceName: /dev/sda1
         Ebs:
-          VolumeSize: 20        # <-- increase this number (default is 8)
-          VolumeType: gp3       # or gp2
+          VolumeSize: 20        # (default is 8)
+          VolumeType: gp3       
           DeleteOnTermination: true
       
       SecurityGroupIds:
@@ -42,17 +42,15 @@ Resources:
           sudo apt install docker.io -y
           sudo chmod 666 /var/run/docker.sock
 
-          
-          # Retry Docker pull (3GB image may take time)
           for i in {1..5}; do
-            docker pull rohitttweb/yt_summrizer_b && break || sleep 30
+            docker pull rohitttweb/yt_summarizer && break || sleep 30
           done
 
           # Run the container (auto-restarts)
-          docker run -d --restart unless-stopped -p 80:8000 rohitttweb/yt_summrizer_b
+          docker run -d --restart unless-stopped -p 80:8000 rohitttweb/yt_summarizer
       Tags:
         - Key: Name
-          Value: yt_summrizer_app
+          Value: yt_summarizer_app
 
 Outputs:
   InstancePublicIP:

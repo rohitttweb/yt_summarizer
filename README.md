@@ -59,19 +59,19 @@ The project includes a GitHub Actions workflow for automating the build process.
 
 Workflow File: `.github/workflows/build-and-push.yml`
   * Purpose: Automates the process of building the Docker image and pushing it to docker hub.
-  * Triggers: Runs on every push to the main branch.
+  * Triggers: Runs on  `workflow_dispatch` (manual for now).
   * Steps:
       1. Checkout the repository.
-      2. Build the Docker image.
-      3. Push the Docker image to Docker Hub.
+      2. Login to Docker Hub
+      3. Build the Docker image.
+      4. Push the Docker image to Docker Hub.
 
 ## Deployment with cloud CloudFormation
 #### Deployment on EC2
 1. Prepare AWS Environment:
     * Ensure you have an EC2 KeyPair for SSH access.
     * Configure your AWS CLI with appropriate credentials.
-2. Deploy Using CloudFormation:
-    * Use the `deploy-to-ec2.yml` template to deploy the application:
+2. Depoy-to-ec2.yml` template to deploy the application:
       <pre>
         aws cloudformation create-stack --stack-name yt-summarizer-stack \
         --template-body file://deploy-to-ec2.yml \
@@ -81,7 +81,8 @@ Workflow File: `.github/workflows/build-and-push.yml`
 
 3. Access the Application:
     * Once the stack is created, retrieve the public IP or DNS of the EC2 instance from the CloudFormation outputs.
-    * Access the application in your browser at http://`PublicIP`.
+    * Access the application in your brloy Using CloudFormation:
+    * Use the `deplowser at http://`PublicIP`.
 
 ## How to Use
 1. Open the application in your browser.
