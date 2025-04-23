@@ -34,19 +34,55 @@ Prerequisites
 ### Local Setup
 1. Clone the repository
 <pre>
-```bash
-    git clone <repository-url>
-    cd <repository-folder>
+  git clone <repository-url>
+  cd <repository-folder>
 </pre>
 
 2. Install dependencies
 <pre>
-```bash
-    pip install -r requirements.txt
+  pip install -r requirements.txt
 </pre>
 
 3. Run the application locally:
 <pre>
-```bash
-    uvicorn main:app --host 0.0.0.0 --port 8000
+  uvicorn main:app --host 0.0.0.0 --port 8000
 </pre>
+4. Access the application in your browser at `http://localhost:8000`
+
+## Deployment
+### Deployment on EC2
+1. Prepare AWS Environment:
+  * Ensure you have an EC2 KeyPair for SSH access.
+  * Configure your AWS CLI with appropriate credentials.
+2. Deploy Using CloudFormation:
+  * Use the deploy-to-ec2.yml template to deploy the application:
+  <pre>
+    aws cloudformation create-stack --stack-name yt-summarizer-stack \
+    --template-body file://deploy-to-ec2.yml \
+    --parameters ParameterKey=KeyName,ParameterValue=<YourKeyPairName>
+  </pre>
+  * Replace <YourKeyPairName> with the name of your EC2 KeyPair.
+
+3. Access the Application:
+
+  * Once the stack is created, retrieve the public IP or DNS of the EC2 instance from the CloudFormation outputs.
+  * Access the application in your browser at http://<PublicIP>.
+
+## How to Use
+1. Open the application in your browser.
+2. Enter the YouTube video URL in the input field.
+3. Click the "Send" button.
+4. The summarized transcript will appear below the input field.
+
+## Dependencies
+* fastapi
+* uvicorn
+* torch
+* transformers
+* youtube_transcript_api
+
+## Future Improvements
+1. Add error messages for invalid YouTube URLs.
+2. Improve the summarization model for better accuracy.
+3. Enhance the user interface for a more modern look.
+4. Add support for multiple languages in transcript summarization.
