@@ -24,7 +24,8 @@ jobs:
 
       - name: Build Docker image for  Backend
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/apiV1:latest -f .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/apiV1:latest -f Dockerfile .
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/apiV1:latest ${{ secrets.DOCKERHUB_USERNAME }}/apiV1:latest
       
       - name: Push Docker image to Docker Hub
         run: |
