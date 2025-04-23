@@ -34,8 +34,8 @@ Prerequisites
 ### Local Setup
 1. Clone the repository
 <pre>
-  git clone <repository-url>
-  cd <repository-folder>
+  git clone `repository-url`
+  cd `repository-folder`
 </pre>
 
 2. Install dependencies
@@ -59,14 +59,14 @@ Prerequisites
   <pre>
     aws cloudformation create-stack --stack-name yt-summarizer-stack \
     --template-body file://deploy-to-ec2.yml \
-    --parameters ParameterKey=KeyName,ParameterValue=<YourKeyPairName>
+    --parameters ParameterKey=KeyName,ParameterValue=`YourKeyPairName`
   </pre>
-  * Replace <YourKeyPairName> with the name of your EC2 KeyPair.
+  * Replace `YourKeyPairName` with the name of your EC2 KeyPair.
 
 3. Access the Application:
 
   * Once the stack is created, retrieve the public IP or DNS of the EC2 instance from the CloudFormation outputs.
-  * Access the application in your browser at http://<PublicIP>.
+  * Access the application in your browser at http://`PublicIP`.
 
 ## How to Use
 1. Open the application in your browser.
