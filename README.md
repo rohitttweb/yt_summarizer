@@ -81,8 +81,7 @@ Workflow File: `.github/workflows/build-and-push.yml`
 
 3. Access the Application:
     * Once the stack is created, retrieve the public IP or DNS of the EC2 instance from the CloudFormation outputs.
-    * Access the application in your brloy Using CloudFormation:
-    * Use the `deplowser at http://`PublicIP`.
+    * Access the application in your browser at http://`PublicIP`.
 
 ## How to Use
 1. Open the application in your browser.
